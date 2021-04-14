@@ -1,0 +1,113 @@
+form
+{
+	padding:0px;
+	margin:0px;
+}
+
+/*external box*/
+.EGexternalBox
+{
+	height:500px;
+	overflow:scroll;
+}
+
+/*top box containing the forms: upload,create folder,got to folder*/
+.EGformBox
+{
+	padding-left:10px;
+	padding-right:10px;
+	height:35px;
+	margin:5px;
+	border-top:1px solid #DC143C;
+	border-bottom:1px solid #DC143C;
+	background:#FF7F50;
+}
+
+/*item box: folder*/
+.EGfolderBox
+{
+	padding-left:10px;
+	padding-right:10px;
+	height:55px;
+	margin:5px;
+/* 	border-top:1px solid black; */
+	background:#E6E6FA;
+}
+
+/*item box: file*/
+.EGfileBox
+{
+	padding-left:10px;
+	padding-right:10px;
+	height:55px;
+	margin:5px;
+/* 	border-top:1px solid black; */
+	background:#E0FFFF;
+}
+
+/*back box*/
+.EGbackBox
+{
+	padding-left:10px;
+	padding-right:10px;
+	height:50px;
+	margin:5px;
+	border-top:1px solid #6495ED;
+	border-bottom:1px solid #6495ED;
+	background:#ADD8E6;
+}
+
+/*folder image and back image*/
+.EGfolderImage, .EGbackImage, .EGfileImage
+{
+	margin:3px;
+/* 	padding:2px; */
+	width:55px;
+/* 	background:red; */
+	float:left;
+}
+
+/*box containing the form to create a new folder*/
+.EGcreateFolderBox
+{
+	margin:5px;
+	width:300px;
+	float:left;
+}
+
+/*box containing the form to upload a file*/
+.EGuploadFileBox
+{
+	margin:5px;
+	margin-left:50px;
+	width:400px;
+	float:left;
+}
+
+.EGcreateFolderBox input:text
+{
+	width:150px;
+}
+
+/*name of the folder*/
+.EGfolderName, .EGfileName, .EGcurrentDirectory
+{
+	width:500px;
+	float:left;
+	font:normal 12px/1 Verdana,arial;
+	margin:10px;
+}
+
+/*del image*/
+.EGfolderDelImage, .EGfileDelImage
+{
+	float:right;
+	margin:2px;
+}
+
+/*preview of the image in upload file*/
+#imagePreview
+{
+	margin:10px;
+	height:120px;
+}
