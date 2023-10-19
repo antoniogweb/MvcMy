@@ -28,6 +28,8 @@ class Lang_It_Formats_To_Mysql
 	//convert the string from It decimal format to MySQL decimal format
 	public function decimal($string)
 	{
+		$string = nullToBlank($string);
+		
 		return str_replace(",",".",$string);
 	}
 	
@@ -46,9 +48,11 @@ class Lang_It_Formats_To_Mysql
 	//convert the string from It date format to MySQL date format
 	public function date($date)
 	{
-		if (preg_match('/^[0-9]{2}\-[0-9]{2}\-[0-9]{4}$/',$date))
+		$date = nullToBlank($date);
+		
+		if (preg_match('/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/',$date))
 		{
-			$dateArray = explode('-',$date);
+			$dateArray = explode('/',$date);
 			return $dateArray[2]."-".$dateArray[1]."-".$dateArray[0];
 		}
 		return $date;

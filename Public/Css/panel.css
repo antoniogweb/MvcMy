@@ -1,5 +1,5 @@
 html, body{margin: 0;padding:0}
-body{text-align: center;margin:0px;padding:0px;}
+body{margin:0px;padding:0px;}
 
 
 div#container
@@ -12,7 +12,7 @@ div#container
 
 .mainMenu {
 	height:35px;
-	padding-top:6px;
+/* 	padding-top:6px; */
 	margin-bottom:10px;
 }
 
@@ -31,7 +31,7 @@ div#container
 	float:left;
 	width:105px;
 	height:25px;
-	margin:10px;
+/* 	margin:10px; */
 	text-align:left;
 }
 .mainMenuItemLarge
@@ -50,27 +50,14 @@ div#container
 	font-size:14px;
 }
 
-
-.popup_legend
-{
-	clear:left;
-}
-
 .popup_legend_item
 {
-	float:left;
-	margin-right:5px;
-	width:202px;
 	padding-left:5px;
-	font-size:12px;
-	padding-top:3px;
+	padding-top:0px;
 	color:#FF4500;
-	font-weight:bold;
+/* 	font-weight:bold; */
 }
-/*.popup_legend_item_id_c
-{
-	width:302px;
-}*/
+
 .listTable
 {
 	width:100%;
@@ -88,8 +75,8 @@ img {
 	border:none;
 }
 
-td.editForm, td.delForm, td.associateForm, td.moveupForm, td.movedownForm,td.Form, td.ledit, td.ldel, td.lmoveup, td.lmovedown {
-	width:3%;
+td.editForm, td.delForm, td.associateForm, td.moveupForm, td.movedownForm,td.Form, td.ledit,td.ldel {
+	width:2%;
 }
 
 table.listTable
@@ -111,7 +98,7 @@ table.listTable tr
 
 td.simpleLink
 {
-	width:3%;
+	width:2%;
 }
 
 
@@ -122,15 +109,16 @@ td.simpleLink
     text-align: center;
 	font-weight:bold;
 	font-size:14px;
+	clear:both;
 }
 .alert, .alert h4 {
 /*     color: #C09853; */
 }
 .alert {
     background-color: #FCF8E3;
-    border: 1px solid #FBEED5;
+/*     border: 1px solid #FBEED5 !important; */
     margin-bottom: 20px;
-    padding: 5px 35px 5px 14px;
+    padding: 5px 35px 5px 14px !important;
     position: relative;
     text-align: center;
 	margin-top: 20px;
@@ -157,8 +145,8 @@ tr.listRow {
 }
 
 tr.listHead {
-	font-weight: bold;
-	background:#f6f6f6;
+/* 	font-weight: bold; */
+/* 	background-color:#EEEEEE; */
 /*	border:1px solid #4169E1;
 	border-bottom:1px solid #4169E1;*/
 }
@@ -177,7 +165,7 @@ tr.listHead td {
 }
 .list_filter_clear_link
 {
-	vertical-align:-5px;
+	vertical-align:2px;
 	padding-left:5px;
 }
 .list_filter_submit
@@ -190,7 +178,7 @@ tr.listHead td {
 {
 	border:1px solid #D3D3D3;
 	padding:3px;
-/* 	width:100px; */
+	width:90px;
 }
 .recordsBox {
 	clear:left;
@@ -244,7 +232,7 @@ tr.listHead td {
 
 a.linkItem {
 /* 	background:red; */
-	font:bold 12px/1 arial;
+/* 	font:bold 12px/1 arial; */
 }
 
 /*controller:panel
@@ -271,79 +259,12 @@ a.linkItem {
 
 
 .verticalMenu {
-	margin-bottom:50px;
+/* 	margin-bottom:20px; */
 /* 	margin-left:10px; */
 	color: #686868;
-	height:24px;
-/*	text-align:right;*/
-}
-.ext_menu_block
-{
-	float:left;
-	width:200px;
-	margin-right:10px;
-}
-ul.menuBlock {
-	float:left;
-	margin:0px;
-	padding:0px;
-	list-style:none;
- 	height:24px;
- 	font-size:11px;
-	cursor:pointer;
-}
-ul.menuBlock li {
+	clear:left;
 	position:relative;
-	display:block;
-	float:left;
-	margin-right:5px;
-	width:200px;
-	min-height:21px;
-	text-align:left;
-	background:#ffffff;
-	padding-top:3px;
-	padding-left:5px;
-}
-ul.menuBlock > li
-{
-	border:1px solid #D3D3D3;
-}
-ul.menuBlock li ul li
-{
-	width:201px;
-	cursor:default;
-}
-/*ul.menuBlock li.inner_item_id_c {
-	width:300px;
-}*/
-ul.menuBlock li.inner_item_id_c ul li{
-	width:301px;
-}
-ul.menuBlock li a {
-	color:#696969;
-	font: bold 11px/1 arial;
-}
-
-ul.menuBlock li ul {
-	margin:0px;
-	padding:0px;
-	list-style:none;
-	position:absolute;
-	top:24px;
-	left:-1px;
-	display:none;
-}
-
-ul.menuBlock:hover li ul
-{
-	display:block;
-}
-
-ul.menuBlock li ul li {
-	background:#E6E6FA;
-	min-height:0px;
-	padding:5px 3px;
-	border-bottom:1px solid #D3D3D3;
+/*	text-align:right;*/
 }
 
 .viewall_popup_menu_status
@@ -366,41 +287,6 @@ ul.menuBlock li ul li {
 }
 
 
-.entryLabel {
-	display:block;
-	font:bold 12px/1em arial;
-	padding:3px 0px;
-/* 	margin-top:10px; */
-	/*background:#E6E6FA;*/
-	width:400px;
-}
-
-div.formEntryCheckbox .entryLabel {
-	display:block;
-	font:bold 12px/1em arial;
-	padding:3px 0px;
-	margin-top:10px;
-	/*background:#E6E6FA;*/
-	width:250px;
-}
-.formEntry
-{
-	clear:left;
-}
-div.entryLeft
-{
-	width:130px;
-	float:left;
-/* 	margin:10px 0; */
-}
-div.entryLeft .entryLabel
-{
-	width:130px;
-}
-.formEntryClear
-{
-	clear:left;
-}
 .vis_label
 {
 	margin-right:20px;
@@ -419,70 +305,7 @@ div.entryLeft .entryLabel
 {
 	font-size:12px;
 }
-.form_input_text
-{
-	margin-top:10px;
-}
-.form_input_text_promozione
-{
-	margin-top:0px;
-}
-.form_input_text input,.form_textarea textarea, .entryinlinea input, .alias_Select input {
-	width:500px;
-	padding:3px;
-	border: 1px solid #d3d3d3;
-}
-.form_input_text input.input_corto
-{
-	width:484px;
-}
-.form_textarea textarea
-{
-	width:800px;
-	height:350px;
-}
-.form_textarea textarea.indirizzo_spedizione
-{
-	width:500px;
-	height:50px;
-}
-.ui-datepicker-trigger
-{
-	vertical-align: bottom;
-}
-.form_input_text input.data_anno_mese, .form_input_text input#from, .form_input_text input#to
-{
-	width:200px;
-}
-.entryCheckbox
-{
-	float:left;
-	width:200px;
-/* 	background:red; */
-}
-.entryCheckbox .entryLabel
-{
-	width:200px;
-}
-div.entryinlinea input
-{
-	width:250px;
-}
-div.entryinlinea
-{
-	float:left;
-	width:250px;
-}
-.formClass {
-	margin:10px 0;
-}
-.formClass > div
-{
-	margin-top:10px;
-}
-.inputEntry, .submit_entry {
-	margin:10px 0px;
-}
+
 
 #sottotitolo_adv
 {
@@ -579,8 +402,17 @@ div.pageList a.currentPage
 	border:1px solid black;
 /* 	width:30px; */
 }
-
-.current
+.del_button
 {
+	font-size:18px;
 	font-weight:bold;
+}
+.del_button i
+{
+	vertical-align:4px;
+}
+
+.form_cerca input
+{
+	margin-left:5px;
 }

@@ -1,9 +1,9 @@
 <!--
 
-var noSelectedString = "Please select some items";
-var doYouConfirmString = "Do you confirm the action: '";
+var noSelectedString = "Si prega di selezionare alcune righe";
+var doYouConfirmString = "Confermi l'azione: '";
 var inputFieldErrorBorderStyle = "2px solid red";
-var dataFormat = "dd-mm-yy";
+var dataFormat = "dd/mm/yyyy";
 
 $(document).ready(function(){
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			$("." + bulk_select_class).prop('checked', false);
+			$("." + bulk_select_class).prop('checked', false)
 		}
 		
 	});
@@ -78,21 +78,25 @@ $(document).ready(function(){
 			{
 				var bulk_values_string = bulk_values_array.join('|');
 
-				var submit = true;
+				bulk_values_string = bulk_values_string.replace("'","&apos;");
+
+				var formHtml = "<form class='bulk_actions_form' action='"+current_URL+"' method='POST'><input type='hidden' name='bulkActionValues' value='"+bulk_values_string+"' /><input type='hidden' name='bulkAction' value='"+t_action+"' /></form>";
+				$("body").append(formHtml);
+				
+				var submit = false;
 				
 				if (selected_option.attr("data-confirm") == "Y")
 				{
-					if (!window.confirm(doYouConfirmString + t_action_readable + "' ?")) {
-						submit = false;
-					}
+					setTimeout(function(){
+						
+						if (window.confirm(doYouConfirmString + t_action_readable + "' ?")) {
+							$(".bulk_actions_form").submit();
+						}
+						
+					}, 100);
 				}
-				
-				if (submit)
-				{
-					var formHtml = "<form class='bulk_actions_form' action='"+current_URL+"' method='POST'><input type='hidden' name='bulkActionValues' value='"+bulk_values_string+"' /><input type='hidden' name='bulkAction' value='"+t_action+"' /></form>";
-					$("body").append(formHtml);
+				else
 					$(".bulk_actions_form").submit();
-				}
 			}
 			else
 			{
@@ -129,7 +133,15 @@ $(document).ready(function(){
 	
 	//automatically set jQueryUI datepicker
 	$( ".date_input" ).datepicker( {
-		dateFormat: dataFormat
+		format: dataFormat,
+		orientation: datePickerOrientation,
+		todayBtn: "linked",
+		keyboardNavigation: false,
+		forceParse: false,
+		calendarWeeks: true,
+		autoclose: true,
+		language: "it"
+// 		startView: datePickerStartView,
 	} );
 });
 

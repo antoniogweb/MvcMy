@@ -1,1 +1,0 @@
-<h2>We are inside the second_view_file.php</h2>

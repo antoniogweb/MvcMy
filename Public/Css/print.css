@@ -1,0 +1,41 @@
+.for_print
+{
+	display:none !important;
+}
+
+body
+{
+	background: #FFF;
+}
+
+#admin_tools, .mainMenu, .scaffold_header, #ombra_header, #header, .submit_entry, .executed, .box_fatture, .close_lightbox, .stampa_pagina, .print_page, .btn, .stampa_box, .tabs-container, .box_cliente_laterale, .for_print
+{
+	display:none !important;
+}
+
+#page-wrapper {
+	margin: 0px !important;
+}
+
+.sidebar, .page-header, .alert
+{
+	display:none !important;
+}
+
+.col-md-offset-2
+{
+    margin-left: 0 !important;
+}
+
+#page-wrapper_partial
+{
+	background-color:#FFF;
+}
+
+a[href]:after {
+	content: none !important;
+}
+
+#page-wrapper.print {
+	margin: 0px !important;
+}

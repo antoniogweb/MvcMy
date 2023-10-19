@@ -1,5 +1,0 @@
-create table boxes (
-	id int(5) not null auto_increment primary key,
-	title varchar(100) not null,
-	xml text CHARACTER SET utf8 not null
-);

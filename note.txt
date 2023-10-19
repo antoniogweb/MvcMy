@@ -1,0 +1,7 @@
+External:
+	mpdfPHP7 -> provare, directory non scrivibile
+	html2pdf
+	PDFMerger-Master
+	phpsec
+	
+	manutenzioni/PDFMerger-Master

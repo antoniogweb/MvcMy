@@ -34,11 +34,54 @@ class Lang_It_Formats_Fields extends Lang_En_Formats_Fields
 			{
 				$temp[$i] = self::getLabel($temp[$i]);
 			}
-			return implode (" e ",$temp);
+			return implode (" , ",$temp);
 		}
 		else
 		{
+			$fieldName = str_replace("_medico","",$fieldName);
+			$fieldName = str_replace("_consulente","",$fieldName);
+			$fieldName = str_replace("_commercialista","",$fieldName);
+			$fieldName = str_replace("_operativo","",$fieldName);
+			
+			$fieldName = str_replace("_tutore","",$fieldName);
+			$fieldName = str_replace("_cell_1","",$fieldName);
+			$fieldName = str_replace("_cell_2","",$fieldName);
+			
+			$fieldName = str_replace("numero_identificazione","N° identificazione",$fieldName);
+			
+			$fieldName = str_replace("provincia","prov.",$fieldName);
+			
+			$fieldName = str_replace("familiarita","familiarità",$fieldName);
+			
+			if (strcmp($fieldName,"invalidita") === 0) return "Invalidità";
+			
+			if (strcmp($fieldName,"id_datore") === 0) return "Datore di lavoro";
+			
+			if (strcmp($fieldName,"titolo") === 0) return "Titolo (*)";
+			if (strcmp($fieldName,"ragione_sociale") === 0) return "Ragione sociale (*)";
+			if (strcmp($fieldName,"abbreviazione") === 0) return "Abbreviazione (*)";
+// 			if (strcmp($fieldName,"cell_1") === 0) return "Cell 1 (*)";
+			
+			if (strcmp($fieldName,"numero_civico") === 0) return "N°";
+			if (strcmp($fieldName,"numero_civico_domicilio") === 0) return "N°";
+			if (strcmp($fieldName,"cap_domicilio") === 0) return "Cap";
+			
+			if (strcmp($fieldName,"p_iva") === 0) return "P. IVA";
+			
+			if (strcmp($fieldName,"localita") === 0) return "Località";
+			
+			if (strcmp($fieldName,"title") === 0) return "Titolo";
+			if (strcmp($fieldName,"keywords") === 0) return "Parole chiave (divise da virgola)";
+			if (strcmp($fieldName,"meta_description") === 0) return "Descrizione per motori di ricerca";
+			if (strcmp($fieldName,"add_in_sitemap") === 0) return "Mostra in sitemap";
+			
+			if (strcmp($fieldName,"durata") === 0) return "Durata (in ore)";
+			
+			if (strcmp($fieldName,"attiva_per_azienda") === 0) return "Attivo";
+			
+			
 			$fieldName = str_replace("_"," ", $fieldName);
+			
 			return ucfirst($fieldName);
 		}
 	}

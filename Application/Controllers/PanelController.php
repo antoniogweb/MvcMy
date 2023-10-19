@@ -1,46 +1,41 @@
 <?php
 
-// All EasyGiant code is released under the GNU General Public License or a compatible license.
-// See COPYRIGHT.txt and LICENSE.txt.
+if (!defined('EG')) die('Direct access not allowed!');
 
-class PanelController extends Controller {
+class PanelController extends BaseController {
 
-	public function __construct($model, $controller, $queryString) {
-		parent::__construct($model, $controller, $queryString);
+	public function __construct($model, $controller, $queryString, $application, $action) {
+		parent::__construct($model, $controller, $queryString, $application, $action);
 		$this->session('admin');
-		$this->load('header');
-		$this->load('footer','last');
+
+		$this->s['admin']->check();
 	}
-
-	public function main()
+	
+	public function main($tipo = "sito")
 	{
-// 		$this->s['admin']->checkStatus();
-// 		print_r($this->s['admin']->status);
-		$this->s['admin']->check(null,1);
-// 		echo $this->s['admin']->uid;
-		$data['logged'] = $this->s['admin']->getUsersLogged();
+		$this->shift();
+		
+		switch ($tipo)
+		{
+			case "gestionale":
+				$data["sezionePannello"] = "gestionale";
+				break;
+			case "impostazioni":
+				$data["sezionePannello"] = "impostazioni";
+				break;
+			default:
+				$data["sezionePannello"] = "gestionale";
+				break;
+		}
 
-		$id = (int)$this->s['admin']->status['id_user'];
+		$data['tm'] = $this->_topMenuClasses;
 		
-		$name = $this->s['admin']->status['user'];
+		Params::$nullQueryValue = $this->nullQueryValue;
 		
-		$gruppi = $this->s['admin']->status['groups'];
-		
-// 		echo $id;
-		print_r($gruppi);
-		
-		$token = $this->s['admin']->status['token'];
-		$data['urlAdd'] = '/1/all/1/'.$token;
+// 		print_r($data["aziende"]);
+		$this->append($data);
 
-// 		print_r($this->s['admin']->status);
-		
-		$this->set($data);
 		$this->load('panel');
 	}
-
-	public function index()
-	{
-		echo 'inside panel/index';
-	}
-
+	
 }

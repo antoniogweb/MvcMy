@@ -2,7 +2,7 @@
 
 // EasyGiant is a PHP framework for creating and managing dynamic content
 //
-// Copyright (C) 2009 - 2014  Antonio Gallo (info@laboratoriolibero.com)
+// Copyright (C) 2009 - 2011  Antonio Gallo
 // See COPYRIGHT.txt and LICENSE.txt.
 //
 // This file is part of EasyGiant
@@ -24,19 +24,13 @@ if (!defined('EG')) die('Direct access not allowed!');
 
 class Lang_It_ModelStrings extends Lang_ResultStrings {
 	
-	public function __construct() {
-
-		$this->string = array(
-			"error" => "<div class='".Params::$errorStringClassName."'>Errore nella query: contatta l'amministratore!</div>\n",
-			"executed" => "<div class='".Params::$infoStringClassName."'>operazione eseguita!</div>\n",
-			"associate" => "<div class='".Params::$errorStringClassName."'>Problema di integrit&agrave referenziale: il record &egrave associato ad un record di una tabella figlia. Devi prima rompere l'associazione.</div>\n",
-			"no-id" => "<div class='".Params::$errorStringClassName."'>Non &egrave definito alcun id della query</div>\n",
-			"not-linked" => "<div class='".Params::$errorStringClassName."'>Il record non &egrave associato, non puoi dissociarlo</div>",
-			"linked" => "<div class='".Params::$errorStringClassName."'>Il record &egrave gi&agrave associato, non puoi associarlo un'altra volta</div>",
-			"not-existing-fields" => "<div class='".Params::$errorStringClassName."'>Alcuni campi della tabella non sono esistenti</div>\n",
-			"no-fields" => "<div class='".Params::$errorStringClassName."'>Non ci sono valori da inserire/aggiornare</div>\n",
-		);
-
-	}
+	public $string = array(
+		"error" => "<div class='alert alert-danger'>Errore nella query: contatta l'amministratore!</div>\n",
+		"executed" => "<div class='alert alert-success'>operazione eseguita!</div>\n",
+		"associate" => "<div class='alert alert-danger'>Problema di integrit&agrave referenziale: il record &egrave associato ad un record di una tabella figlia. Devi prima rompere l'associazione.</div>\n",
+		"no-id" => "<div class='alert'>Non &egrave definito alcun id della query</div>\n",
+		"not-linked" => "<div class='alert alert-danger'>Il record non &egrave associato, non puoi dissociarlo</div>",
+		"linked" => "<div class='alert alert-danger'>Il record &egrave gi&agrave associato, non puoi associarlo un'altra volta</div>"
+	);
 	
 }

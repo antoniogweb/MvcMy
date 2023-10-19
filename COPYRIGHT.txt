@@ -1,24 +1,24 @@
-EasyGiant is a PHP framework for creating and managing dynamic content
-Copyright (C) 2009 - 2021  Antonio Gallo (info@laboratoriolibero.com)
+MvcMy is a flexible and easy-to-use PHP MVC framework to use together with MvcMyLibrary
+Copyright (C) 2009 - 2023  Antonio Gallo (info@laboratoriolibero.com)
 See LICENSE.txt.
 
-This file is part of EasyGiant
+This file is part of MvcMy
 
-EasyGiant is free software: you can redistribute it and/or modify
+MvcMy is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-EasyGiant is distributed in the hope that it will be useful,
+MvcMy is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with EasyGiant.  If not, see <http://www.gnu.org/licenses/>.
+along with MvcMy.  If not, see <http://www.gnu.org/licenses/>.
 
 
-EasyGiant includes works distributed under the licenses listed below.
+MvcMy includes works distributed under the licenses listed below.
 
 FreeFont
 -------
@@ -26,9 +26,34 @@ License:	GNU GPL version 3 or later
 Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 link: 		http://savannah.gnu.org/projects/freefont/
 
-
 Elementary icon theme
 ---------------------
 License: GNU GPL version 2
 elementary is designed and developed by Daniel Foré <Daniel.p.Fore@gmail.com>
 link: 		https://launchpad.net/elementaryicons/+milestone/2.5
+
+PHPMailer
+-------
+License:	LGPL-2.1 license
+link: 		https://github.com/PHPMailer/PHPMailer
+
+jQuery
+-------
+License:	The MIT License (MIT)
+link:		https://github.com/jquery/jquery
+
+jQuery UI
+-------
+License:	The MIT License (MIT)
+link:		https://jqueryui.com/
+
+iCheck
+-------
+License:	The MIT License (MIT)
+link:	https://plugins.jquery.com/icheck/
+
+TinyMCE 3.x
+-------
+License:	GNU GPL version 2 or later
+link: 		http://archive.tinymce.com/wiki.php/tinymce3x:tinymce_3.x
+

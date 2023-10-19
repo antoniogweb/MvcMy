@@ -2,7 +2,7 @@
 
 // EasyGiant is a PHP framework for creating and managing dynamic content
 //
-// Copyright (C) 2009 - 2014  Antonio Gallo (info@laboratoriolibero.com)
+// Copyright (C) 2009 - 2011  Antonio Gallo
 // See COPYRIGHT.txt and LICENSE.txt.
 //
 // This file is part of EasyGiant
@@ -42,7 +42,7 @@ class Lang_It_Generic extends Lang_En_Generic
 		'add a new record'	=>	'aggiungi una nuova riga',
 		'Add'		=>	'Aggiungi',
 		'back to the Panel'	=>	'torna al Pannello',
-		'Panel'		=>	'Pannello',
+		'Panel'		=>	'Home',
 		'previous'	=>	'precedente',
 		'next'		=>	'successivo',
 		'All'		=>	'Tutti',

@@ -28,6 +28,8 @@ class Lang_It_Formats_From_Mysql
 	//convert the string from MySQL decimal format to It decimal format 
 	public function decimal($string)
 	{
+		$string = nullToBlank($string);
+		
 		return str_replace(".",",",$string);
 	}
 	
@@ -46,10 +48,14 @@ class Lang_It_Formats_From_Mysql
 	//convert the string from MySQL date format to It date format
 	public function date($date)
 	{
+		$date = nullToBlank($date);
+		
+		if (!checkIsoDate($date)) return "";
+		
 		if (preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/',$date))
 		{
 			$dateArray = explode('-',$date);
-			return $dateArray[2]."-".$dateArray[1]."-".$dateArray[0];
+			return $dateArray[2]."/".$dateArray[1]."/".$dateArray[0];
 		}
 		return $date;
 	}
@@ -59,19 +65,25 @@ class Lang_It_Formats_From_Mysql
 	{
 		switch ($string)
 		{
-			case "a":
-				return "Scelta A";
 			case "Y":
 				return "Sì";
 			case "N":
 				return "No";
-			case "b":
-				return "Scelta B";
-			case "c":
-				return "Scelta C";
-			case "d":
-				return "Scelta D";
 		}
+		return $string;
+	}
+	
+	public function time($string)
+	{
+		$string = nullToBlank($string);
+		
+		if (preg_match('/^[0-9]{2}\:[0-9]{2}\:[0-9]{2}$/',$string))
+		{
+			$array = explode(":",$string);
+			
+			return $array[0].":".$array[1];
+		}
+		
 		return $string;
 	}
 	
