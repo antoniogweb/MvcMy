@@ -38,12 +38,15 @@ class BaseController extends Controller
 		$this->parentRoot = $data['parentRoot'] = $this->baseUrl;
 		$this->parentRootFolder = $data['parentRootFolder'] = App::$parentRoot = ROOT;
 		
-		$this->session('admin');
+		$this->session('admin', array(
+			new UtentiModel(),
+			new SessioniModel(),
+			new AccessiModel(),
+			new PermessiModel(),
+		));
 		
 		if (strcmp($controller,"utenti") !== 0)
-		{
-// 			$this->s['admin']->check();
-		}
+			$this->s['admin']->check();
 		
 		$this->model('UtentiModel');
 		$this->model('UtentipermessiModel');

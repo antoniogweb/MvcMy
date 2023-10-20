@@ -29,7 +29,7 @@ if (!defined('EG')) die('Direct access not allowed!');
 
 date_default_timezone_set("Europe/Rome");
 
-$mysqli = Db_Mysqli::getInstance();
+$mysqli = Factory_Db::getInstance(DATABASE_TYPE);
 $mysqli->query("set session sql_mode=''");
 
 require(ROOT."/scaffold_config.php");

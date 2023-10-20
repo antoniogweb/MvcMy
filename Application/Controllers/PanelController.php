@@ -8,7 +8,7 @@ class PanelController extends BaseController {
 		parent::__construct($model, $controller, $queryString, $application, $action);
 		$this->session('admin');
 
-		$this->s['admin']->check();
+// 		$this->s['admin']->check();
 	}
 	
 	public function main($tipo = "sito")
