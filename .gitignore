@@ -5,3 +5,6 @@
 config.php
 /Library/*
 .directory
+/Application/Views/header.php
+/Application/Views/footer.php
+/Public/Ignore/*
