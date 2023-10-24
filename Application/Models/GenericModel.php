@@ -642,84 +642,6 @@ class GenericModel extends Model_Tree {
 		
 		return count($record) > 0 ? true : false;
 	}
-	
-	public function selectNazione()
-	{
-		$n = new NazioniModel();
-		
-		if (!isset(NazioniModel::$elenco))
-		{
-			NazioniModel::$elenco = array("0"	=>	"Seleziona") + $n->select("iso_country_code,titolo")->orderBy("titolo")->toList("iso_country_code","titolo")->send();
-		}
-		
-		return NazioniModel::$elenco;
-	}
-	
-	public function selectAzienda()
-	{
-		$a = new AziendeModel();
-		
-		$a->clear()->where(array(
-			"attivo"	=>	"Y",
-		))->orderBy("ragione_sociale")->toList("id_azienda","ragione_sociale");
-		
-		return $a->send();
-	}
-	
-	public function checkPIva()
-	{
-		if (isset($this->values["p_iva"]) and $this->values["p_iva"] != "")
-		{
-			if (!controllaPIVA($this->values["p_iva"]))
-			{
-				$this->notice = "<div class='alert alert-danger'>Attenzione, si prega di controllare il campo P. IVA</div>".'<div style="display:none;" rel="hidden_alert_notice">p_iva</div>';
-				$this->result = false;
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	public function checkCodiceFiscale()
-	{
-		if (isset($this->values["codice_fiscale"]) and $this->values["codice_fiscale"] != "")
-		{
-			if (!codiceFiscale($this->values["codice_fiscale"]) and !controllaPIVA($this->values["codice_fiscale"]))
-			{
-				$this->notice = "<div class='alert alert-danger'>Attenzione, si prega di controllare il campo codice fiscale</div>".'<div style="display:none;" rel="hidden_alert_notice">codice_fiscale</div>';
-				$this->result = false;
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	public function selectPrestazione()
-	{
-		$p = new PrestazioniModel();
-		
-		$p->clear()->where(array(
-			"attivo"	=>	"Y",
-		))->inner(array("tipologia"))->orderBy("titolo")->toList("id_prest","titolo");
-		
-		return array("0" =>	"Seleziona") + $p->send();
-	}
-	
-	public function selectIva()
-	{
-		$iva = new IvaModel();
-		
-		return $iva->clear()->orderBy("ordine")->toList("id_iva","titolo")->send();
-	}
-	
-	public function valoreIva($idIva)
-    {
-		$iva = new IvaModel();
-		
-		return $iva->getValore($idIva);
-    }
     
     public function attivaPerAzienda($record)
     {
@@ -740,62 +662,6 @@ class GenericModel extends Model_Tree {
 		return "Sì";
 	}
 	
-	public function aWhereAzienda()
-	{
-		if (!User::has("Admin"))
-		{
-			$this->aWhere(array(
-				$this->_tables.".id_azienda"	=>	(int)User::$idAzienda,
-				$this->_tables.".elemento_visibile"	=>	"Y",
-			));
-		}
-		
-		return $this;
-	}
-	
-	public function checkUniqueCodice($id = 0)
-	{
-		if (!User::has("Admin") && isset($this->values["codice"]))
-		{
-			$this->clear()->where(array(
-				$this->_tables.".id_azienda"	=>	(int)User::$idAzienda,
-				$this->_tables.".codice"		=>	sanitizeDb($this->values["codice"]),
-			));
-			
-			if ($id)
-				$this->aWhere(array(
-					"ne"	=>	array(
-						$this->_tables.".".$this->_idFields	=>	(int)$id,
-					)
-				));
-			
-			$numero = $this->rowNumber();
-			
-			if ($numero > 0)
-			{
-				$this->result = false;
-				$this->notice = "<div class='text text-danger'>".t("Il valore del campo <i>Codice</i> è già presente. Per favore scegline un altro.")."</div>".'<div style="display:none;" rel="hidden_alert_notice">codice</div>';
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	public function azienda($record)
-	{
-		$az = new AziendeModel();
-		
-		$azienda = $az->selectId($record[$this->_tables]["id_azienda"]);
-		
-		if (!empty($azienda))
-		{
-			return $azienda["ragione_sociale"];
-		}
-		
-		return "";
-	}
-	
 	public function elementovisibile($record)
 	{
 		if ($record[$this->_tables]["elemento_visibile"] == "No" || $record[$this->_tables]["elemento_visibile"] == "N")
@@ -804,35 +670,5 @@ class GenericModel extends Model_Tree {
 			return "<a class='attiva_disattiva_per_azienda' title='SEDE ATTIVA: fai click per disattivare.' href='".Url::getRoot()."impianti/cambiastatoelemento/N/".$this->_tables."/".$record[$this->_tables][$this->_idFields]."'><i class='text_16 verde text fa fa-check'></i></a>";
 		
 		return "";
-	}
-	
-	public function impostaAziendaSeAdmin($modelPadre, $idPadre)
-	{
-		if (!User::$idAzienda && isset($this->values[$idPadre]))
-		{
-			$str = new $modelPadre();
-			$record = $str->selectId($this->values[$idPadre]);
-			
-			if (!empty($record) && $record["id_azienda"])
-				$this->values["id_azienda"] = $record["id_azienda"];
-		}
-	}
-	
-	public function gNomeImpianto($id_i)
-	{
-		$i = new ImpiantiModel();
-		return $i->titolo($id_i);
-	}
-	
-	public function gNomeReparto($id)
-	{
-		$r = new RepartiModel();
-		return $r->titolo($id);
-	}
-	
-	public function gNomeStrumentazione($id)
-	{
-		$r = new StrumentazioniModel();
-		return $r->titolo($id);
 	}
 }

@@ -3,7 +3,7 @@
 <?php
 	$topCercaValue = (isset($this->viewArgs[$topCercaName]) && (strcmp($this->viewArgs[$topCercaName],Params::$nullQueryValue) !== 0) || $this->viewArgs[$topCercaName] != "") ? $this->viewArgs[$topCercaName] : "";
 	
-	if (!isset($filtruSuoperioreAction)) $filtruSuoperioreAction = strcmp($this->action,"main") === 0 ? "main" : "calendario";
+	if (!isset($filtruSuoperioreAction)) $filtruSuoperioreAction = "main";
 ?>
 <form action="<?php echo $this->baseUrl."/".$this->controller."/$filtruSuoperioreAction";?>" class="form-inline filtro_superiore">
 	<div class="form-group pull-right">
