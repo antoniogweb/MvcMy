@@ -172,7 +172,7 @@ class UtentiController extends BaseController {
 		
 		$this->shift(2);
 		
-		$this->m[$this->modelName]->setFields('email:sanitizeAll,attivo:sanitizeAll,nome:sanitizeAll,cognome:sanitizeAll,password:sha256','none');
+		$this->m[$this->modelName]->setFields('email:sanitizeAll,attivo:sanitizeAll,nome:sanitizeAll,cognome:sanitizeAll,password','none');
 		$this->formFields = 'email,attivo,nome,cognome,password,confirmation';
 		
 		$this->m[$this->modelName]->inserisciPermesso = 2; //forza l'inserimento del permesso Accettazione

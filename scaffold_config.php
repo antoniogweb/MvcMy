@@ -11,7 +11,7 @@ Params::$automaticConversionToDbFormat = true;
 Params::$automaticConversionFromDbFormat = true;
 Params::$automaticallySetFormDefaultValues = true;
 
-Params::$allowedHashFunc = array('md5','sha1','sha256');
+Params::$allowedHashFunc = array('md5','sha1','sha256','passwordhash');
 
 Params::$errorStringClassName = "text text-danger text_danger_obiettivo";
 Params::$infoStringClassName = "alert alert-success";

@@ -92,6 +92,8 @@ class UtentiModel extends GenericModel {
 	
 	public function insert()
 	{
+		$this->values['password'] = call_user_func(PASSWORD_HASH,$this->values['password']);
+		
 		$res = parent::insert();
 		
 		if ($res and isset($this->inserisciPermesso))
@@ -113,10 +115,18 @@ class UtentiModel extends GenericModel {
 	{
 		$clean['id'] = (int)$id;
 		
-		if (isset($this->values['password']) and strcmp($this->values['password'],sha256('')) === 0)
+		if (isset($this->values['password']))
 		{
-			$this->delFields('password');
+			if (!$this->values['password'])
+				$this->delFields('password');
+			else
+				$this->values['password'] = call_user_func(PASSWORD_HASH,$this->values['password']);
 		}
+		
+// 		if (isset($this->values['password']) and strcmp($this->values['password'],sha256('')) === 0)
+// 		{
+// 			$this->delFields('password');
+// 		}
 		
 		$res =  parent::update($clean['id']);
 		
