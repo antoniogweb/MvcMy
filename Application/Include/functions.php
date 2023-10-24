@@ -250,8 +250,6 @@ function getActive($tm, $section)
 //get the text in the right language
 function t($string, $edit = true, $function = "none")
 {
-	return $string;
-	
 	if (isset(Lang::$i18n[Lang::$current][$string]))
 	{
 // 		if (strcmp(User::$ruolo,"Admin") === 0 and $edit and Lang::$edit)
