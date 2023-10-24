@@ -55,7 +55,7 @@ else
 
 
 /*type of database.*/
-//it can be: Mysql, Mysqli or None (first letter in uppercase)
+//it can be: Mysql, Mysqli, PDOMysql, PDOMssql or None (first letter in uppercase)
 define('DATABASE_TYPE','PDOMysql');
 
 /*error controller*/
