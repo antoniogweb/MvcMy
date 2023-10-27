@@ -47,6 +47,7 @@
 					?>
 					
 					<?php echo $notice;?>
+					<?php echo flash("notice");?>
 					
 					<?php echo $main;?>
 				</div>

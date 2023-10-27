@@ -40,24 +40,6 @@
 	<?php include(ROOT."/Application/Views/footer_modulo.php");?>
 	<?php } ?>
 	
-	<script type="text/javascript">
-	$(document).ready(function(){
-// 		$("table.table_scaffolding").rtResponsiveTables({
-// 			containerBreakPoint: 300
-// 		});
-	
-		<?php if (User::$mobile) { ?>
-		$(document)
-		.on('focus', 'input', function() {
-			$("body").addClass('fixfixed');
-		})
-		.on('blur', 'input', function() {
-			$("body").removeClass('fixfixed');
-		});
-		<?php } ?>
-	});
-	</script>
-	
 <?php
 if (isset($_GET["partial"]) and $queryResult) { ?>
 <!--<script>
