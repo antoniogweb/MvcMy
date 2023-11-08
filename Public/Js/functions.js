@@ -71,13 +71,13 @@ function checkChild() {
 
 function reloadPage()
 {
-	if ($(".obiettivosviluppo_form").length > 0)
+	if ($(".main_form").length > 0)
 	{
 		if (changed)
 		{
-			$(".obiettivosviluppo_form").find(".submit_entry button").attr("name","gAction");
-			$(".obiettivosviluppo_form").find(".submit_entry input").attr("name","gAction");
-			$(".obiettivosviluppo_form").submit();
+			$(".main_form").find(".submit_entry button").attr("name","gAction");
+			$(".main_form").find(".submit_entry input").attr("name","gAction");
+			$(".main_form").submit();
 		}
 		else
 			location.reload();

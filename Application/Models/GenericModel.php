@@ -106,25 +106,6 @@ class GenericModel extends Model_Tree {
 		return true;
 	}
 	
-	// Controlla che l'ID appartenga all'azienda dell'utente loggato
-	public function checkDiAzienda($id, $tipo = "update")
-	{
-		if (User::has("Admin"))
-			return true;
-		
-		if ($tipo == "update" || $tipo == "del" || $tipo == "view")
-		{
-			$record = $this->selectId((int)$id);
-			
-			if (!empty($record) && User::has("Azienda") && (int)User::$idAzienda === (int)$record["id_azienda"])
-				return true;
-		}
-		else if ($tipo == "insert")
-			return true;
-		
-		return false;
-	}
-	
 	public function checkRedirect($id, $tipo = "update")
 	{
 		if (!$this->check($id, $tipo))
@@ -214,20 +195,6 @@ class GenericModel extends Model_Tree {
 		}
 		
 		return $result;
-	}
-	
-	public function del($id = null, $where = null)
-	{
-		if (!self::$permettiSempreEliminazione)
-		{
-			if (!User::has("Admin") && $this->_tables != "file")
-				return false;
-		}
-		
-		if ($this->check($id, "del"))
-			return parent::del($id, $where);
-		
-		return false;
 	}
 	
 	public function insert()

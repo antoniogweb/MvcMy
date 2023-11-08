@@ -175,7 +175,7 @@ class UtentiController extends BaseController {
 		$this->m[$this->modelName]->setFields('email:sanitizeAll,attivo:sanitizeAll,nome:sanitizeAll,cognome:sanitizeAll,password','none');
 		$this->formFields = 'email,attivo,nome,cognome,password,confirmation';
 		
-		$this->m[$this->modelName]->inserisciPermesso = 2; //forza l'inserimento del permesso Accettazione
+		$this->m[$this->modelName]->inserisciPermesso = 1; //forza l'inserimento del permesso Admin
 		
 		parent::form($queryType, $id);
 		

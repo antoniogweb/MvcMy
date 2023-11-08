@@ -102,7 +102,7 @@ Helper_List::$filtersFormLayout = array(
 				"class"	=>	"form-control",
 			),
 		),
-		"id_ruolo"		=>	array(
+		"id_permesso"	=>	array(
 			"type"	=>	"select",
 			"attributes"	=>	array(
 				"class"	=>	"form-control",
@@ -308,14 +308,6 @@ Helper_Menu::$htmlLinks = array(
 		"htmlAfter" => '',
 		"attributes" => 'role="button" class="btn btn-danger elimina_button pull-right btn-rounded "',
 	),
-// 	'appuntamento'	=>	array(
-// 		'title'	=>	"Val al calendario",
-// 		'text'	=>	"<i class='fa fa-calendar'></i> Appuntamento",
-// 		'url'	=>	'appuntamento/calendario',
-// 		"htmlBefore" => '',
-// 		"htmlAfter" => '',
-// 		"attributes" => 'role="button" class="btn btn-info pull-right btn-rounded "',
-// 	),
 );
 
 // Form_Entry::$defaultEntryClass = "form-group";
