@@ -7,5 +7,4 @@ Password: <?php echo $password;?><br /><br />
 
 Può eseguire l'accesso alla piattaforma al <a href="<?php echo Url::getRoot()."utenti/login"?>">seguente indirizzo</a>.<br /><br />
 
-Cordiali saluti<br />
-Obiettivo Sicurezza
+Cordiali saluti
