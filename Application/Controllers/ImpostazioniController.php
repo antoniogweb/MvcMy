@@ -42,8 +42,6 @@ class ImpostazioniController extends BaseController
 		
 		$this->m[$this->modelName]->setValuesFromPost('smtp_from,smtp_nome,bcc,smtp_host,smtp_port,smtp_user,smtp_psw');
 		
-		// V1: fatture_in_cloud_api_uid,fatture_in_cloud_api_key,
-		
 		parent::form($queryType, $id);
 	}
 	

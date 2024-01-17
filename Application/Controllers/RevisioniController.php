@@ -18,8 +18,6 @@ class RevisioniController extends BaseController
 			'tabella:sanitizeAll'=>'tutti',
 			'dal:sanitizeAll'=>'tutti',
 			'al:sanitizeAll'=>'tutti',
-			'id_azienda:sanitizeAll'=>'tutti',
-			'ordineazienda:sanitizeAll'=>'tutti',
 		);
 		
 		parent::__construct($model, $controller, $queryString, $application, $action);

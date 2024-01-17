@@ -140,58 +140,7 @@ class GenericModel extends Model_Tree {
 		
 		if ($result && $this->salvaRevisione)
 		{
-			$new = $this->selectId($id);
 			
-			$r = new RevisioniModel();
-			
-			$res = $r->clear()->where(array(
-				"id_tabella"	=>	(int)$id,
-				"tabella"		=>	$this->_tables,
-				"data_modifica"	=>	date("Y-m-d"),
-			))->orderBy("id_revisione desc")->limit(1)->send(false);
-			
-			if ((string)json_encode($new) !== (string)json_encode($old))
-			{
-				if ((int)count($res) === 0 || (int)$res[0]["id_utente"] !== User::$id)
-				{
-					$nome = User::$data["nome"]." ".User::$data["cognome"];
-					$ruolo = User::has("Admin") ? "OS" : "Cliente";
-					
-					$idAzienda = isset($old["id_azienda"]) ? $old["id_azienda"] : 0;
-					$idAnagrafica = isset($old["id_anag"]) ? $old["id_anag"] : 0;
-					
-					if (!$idAzienda && $idAnagrafica && $this->_tables == "anagrafiche")
-						$idAzienda = $this->idAziendaCorrente($idAnagrafica);
-					
-					$r->setValues(array(
-						"data_modifica"	=>	date("Y-m-d"),
-						"descrizione"	=>	"L'utente $nome ($ruolo) ha modificato ".$this->descrizione($id),
-						"titolo"		=>	$this->titolo($id),
-						"azione"		=>	"MODIFICA",
-						"tabella"		=>	$this->_tables,
-						"id_tabella"	=>	(int)$id,
-						"id_utente"		=>	User::$id,
-						"nome_utente"	=>	$nome,
-						"ruolo_utente"	=>	$ruolo,
-						"json"			=>	json_encode($old),
-						"model"			=>	get_called_class(),
-						"visibile"		=>	$this->revisioneVisibile,
-						"id_azienda"	=>	$idAzienda,
-						"id_anagrafica"	=>	$idAnagrafica,
-						"tipo"			=>	App::$modulo,
-					),"sanitizeDb");
-					
-					$r->insert();
-				}
-			}
-			
-			if (count($res) > 0 && (int)$res[0]["id_utente"] === User::$id)
-			{
-				if ((string)$res[0]["json"] === (string)json_encode($new))
-				{
-					$r->pDel($res[0]["id_revisione"]);
-				}
-			}
 		}
 		
 		return $result;
@@ -206,44 +155,9 @@ class GenericModel extends Model_Tree {
 		
 		$this->lId = $this->lastId();
 		
-		if ($res)
+		if ($res && $this->salvaRevisione)
 		{
-			if ($this->salvaRevisione)
-			{
-				$r = new RevisioniModel();
-				
-				$nome = User::$data["nome"]." ".User::$data["cognome"];
-				$ruolo = User::has("Admin") ? "OS" : "Cliente";
-				
-				$idAzienda = isset($this->values["id_azienda"]) ? $this->values["id_azienda"] : 0;
-				$idAnagrafica = isset($this->values["id_anag"]) ? $this->values["id_anag"] : 0;
-				
-				if (!$idAnagrafica && $this->_tables == "anagrafiche")
-					$idAnagrafica = $this->lId;
-				
-				if (!$idAzienda && $idAnagrafica && $this->_tables == "anagrafiche")
-					$idAzienda = $this->idAziendaCorrente($idAnagrafica);
-				
-				$r->setValues(array(
-					"data_modifica"	=>	date("Y-m-d"),
-					"descrizione"	=>	"L'utente $nome ($ruolo) ha aggiunto ".$this->descrizione($this->lId),
-					"titolo"		=>	$this->titolo($this->lId),
-					"azione"		=>	"INSERIMENTO",
-					"tabella"		=>	$this->_tables,
-					"id_tabella"	=>	$this->lId,
-					"id_utente"		=>	User::$id,
-					"nome_utente"	=>	User::$data["nome"]." ".User::$data["cognome"],
-					"ruolo_utente"	=>	$ruolo,
-					"json"			=>	"",
-					"model"			=>	get_called_class(),
-					"visibile"		=>	$this->revisioneVisibile,
-					"id_azienda"	=>	$idAzienda,
-					"id_anagrafica"	=>	$idAnagrafica,
-					"tipo"			=>	App::$modulo,
-				),"sanitizeDb");
-				
-				$r->insert();
-			}
+			
 		}
 		
 		return $res;
