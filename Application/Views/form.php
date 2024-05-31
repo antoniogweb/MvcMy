@@ -84,7 +84,7 @@ $(document).ready(function() {
 				<!--<div class="ibox-title">
 					<h5><?php echo $titoloRecord;?></span>
 				</div>-->
-				<div class="ibox-content ibox-content_invictus">
+				<div class="ibox-content">
 
 					<?php if (!showreport()) { ?>
 					<?php echo $notice;?>
