@@ -76,7 +76,7 @@ $(document).ready(function() {
 			<?php echo $specchietto;?>
 			<?php } ?>
 			
-			<?php if ((!partial() || $this->controller === "ordini" || $this->controller === "anagrafiche") and file_exists(ROOT."/Application/Views/".ucfirst($this->controller)."/steps.php")) { ?>
+			<?php if (!partial() && file_exists(ROOT."/Application/Views/".ucfirst($this->controller)."/steps.php")) { ?>
 			<?php include($this->viewPath("steps"));?>
 			<?php } ?>
 			
