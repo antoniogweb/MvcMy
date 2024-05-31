@@ -11,11 +11,9 @@
 		<h2><?php echo ucfirst($tabella);?></h2>
 		
 		<ol class="breadcrumb">
-			<?php if (User::has("Admin") || $this->controller != "aziende") { ?>
 			<li>
 				<a href="<?php echo $this->baseUrl."/".$this->controller."/main".$this->viewStatus?>">Torna alla lista</a>
 			</li>
-			<?php } ?>
 			<li>
 				<a><b><?php echo $titoloRecord;?></b></a>
 			</li>
