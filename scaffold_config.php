@@ -13,7 +13,7 @@ Params::$automaticallySetFormDefaultValues = true;
 
 Params::$allowedHashFunc = array('md5','sha1','sha256','passwordhash');
 
-Params::$errorStringClassName = "text text-danger text_danger_obiettivo";
+Params::$errorStringClassName = "text text-danger";
 Params::$infoStringClassName = "alert alert-success";
 
 Params::$allowedSanitizeFunc .= ",pulisciData,sanitizeTipoAgenda,sha256,urlPlusEncode";
