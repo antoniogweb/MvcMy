@@ -51,11 +51,9 @@ $(document).ready(function() {
 		<h2><?php echo ucfirst(strtolower(str_replace("_"," ",$tabella)));?></h2>
 		<?php if (!nobuttons()) { ?>
 		<ol class="breadcrumb">
-			<?php if (User::has("Admin") || $this->controller != "aziende") { ?>
 			<li>
 				<a href="<?php echo $this->baseUrl."/".$this->controller."/main".$this->viewStatus?>"><?php echo t("Torna alla lista");?></a>
 			</li>
-			<?php } ?>
 			<li>
 				<a><b><?php echo $titoloRecord;?></b></a>
 			</li>
